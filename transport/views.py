@@ -10,6 +10,21 @@ from reportlab.lib import colors
 from django.http import HttpResponse
 from .models import Student, BusPass, BusRoute
 from .forms import StudentForm, BusPassForm, BusRouteForm
+from django.contrib.auth import get_user_model
+from django.db.utils import OperationalError, ProgrammingError
+
+User = get_user_model()
+
+try:
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@example.com",
+            password="admin123"
+        )
+except (OperationalError, ProgrammingError):
+    # Database tables might not be ready during migrations, ignore those errors
+    pass
 
 
 @login_required
