@@ -1,0 +1,7 @@
+<!-- templates/admin/base_site.html -->
+{% extends "transport/base_site.html" %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static '\static\css\admin.css' %}">
+    {{ block.super }}
+{% endblock %}

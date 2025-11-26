@@ -1,0 +1,90 @@
+{% extends 'transport/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: url("https://i0.wp.com/www.mmumullana.org/wp-content/uploads/2024/08/20240823_155509-min-scaled.jpg?fit=768%2C355&ssl=1");
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.85) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    }
+
+    .section-title h2 {
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 4px black;
+    }
+</style>
+
+<div class="row mb-3">
+    <div class="col-12 section-title">
+        <h2>Add Student</h2>
+        <a href="{% url 'home' %}" class="btn btn-outline-light btn-sm">
+            ← Back to Students
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Student Details
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}">Name</label>
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                            <small class="text-danger">{{ form.name.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.roll_number.id_for_label }}">Roll Number</label>
+                        {{ form.roll_number }}
+                        {% if form.roll_number.errors %}
+                            <small class="text-danger">{{ form.roll_number.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <small class="text-danger">{{ form.email.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.bus_route.id_for_label }}">Bus Route</label>
+                        {{ form.bus_route }}
+                        {% if form.bus_route.errors %}
+                            <small class="text-danger">{{ form.bus_route.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Save Student
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

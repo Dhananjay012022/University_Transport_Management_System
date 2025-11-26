@@ -1,0 +1,56 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{# Set a custom title so we can confirm this template is used #}
+{% block title %}MMDU Transport Admin Dashboard{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        /* TEST: Make the whole page background red first */
+        body {
+            background-color: red !important;
+        }
+
+        /* Now apply your image */
+        body {
+            background-image: url("https://images.shiksha.com/mediadata/images/1746178756phpUj1mG4.jpeg");
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Glass effect on content */
+        #content, .dashboard, .app-index, .module {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border-radius: 15px !important;
+            padding: 15px !important;
+        }
+
+        #content h1, #content h2, caption {
+            color: #ffffff !important;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        #header {
+            background: rgba(0, 0, 0, 0.5) !important;
+            backdrop-filter: blur(4px) !important;
+            border-bottom: none !important;
+        }
+
+        #site-name a {
+            color: #ffffff !important;
+            font-weight: bold !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 style="color:white; text-shadow:1px 1px 4px black; margin-bottom: 20px;">
+        ✅ Custom MMDU Transport Dashboard Loaded
+    </h1>
+
+    {{ block.super }}
+{% endblock %}

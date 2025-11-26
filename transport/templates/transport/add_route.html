@@ -1,0 +1,41 @@
+{% extends 'transport/base.html' %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col-12 section-title">
+        <h2>Add Bus Route</h2>
+        <a href="{% url 'bus_routes' %}" class="btn btn-outline-secondary btn-sm">
+            ← Back to Routes
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Route Details
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <small class="text-danger">{{ field.errors.0 }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-primary">
+                        Save Route
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

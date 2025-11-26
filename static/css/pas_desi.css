@@ -1,0 +1,16 @@
+body{
+    position: relative;  
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background-image: url('https://indoafrica.allegiance-educare.in/storage/uploads/colleges/1486464202n51b990ca3cf5f.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.5; 
+    z-index: -1; 
+}

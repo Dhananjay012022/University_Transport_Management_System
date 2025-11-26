@@ -1,0 +1,59 @@
+/* ===== Custom Admin Theme ===== */
+
+/* Top Header Bar */
+#header {
+    background-color: #002147 !important;
+    border-bottom: 3px solid #F1C40F !important;
+}
+
+/* Header Text */
+#site-name a {
+    color: #F1C40F !important;
+    font-weight: 700 !important;
+    font-size: 22px !important;
+}
+
+/* Sidebar & Menu */
+.module {
+    border-left: 5px solid #002147 !important;
+}
+.dashboard .module {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(10px) !important;
+}
+.app-auth caption, .app-model caption {
+    background-color: #002147 !important;
+    color: white !important;
+}
+
+/* Table styling */
+table thead th {
+    background-color: #002147 !important;
+    color: #fff !important;
+}
+
+/* Buttons */
+.button, input[type=submit], .submit-row input {
+    background-color: #F1C40F !important;
+    color: #000 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+.button:hover, input[type=submit]:hover {
+    background-color: #D4AC0D !important;
+}
+
+/* Links */
+a {
+    color: #002147 !important;
+}
+a:hover {
+    color: #F1C40F !important;
+}
+
+/* Footer */
+#footer {
+    background-color: #002147 !important;
+    color: white !important;
+    border-top: 3px solid #F1C40F !important;
+}

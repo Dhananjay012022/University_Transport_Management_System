@@ -1,0 +1,76 @@
+{% extends 'transport/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/id/1299133253/photo/concept-school-bus-route-on-the-map.jpg?s=612x612&w=0&k=20&c=y3fq5VeIMT8SuY1QHwQ5dvKzLSia2cO27ScwCN29A14=");
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.85) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    }
+
+    .section-title h2 {
+        color: white;
+        text-shadow: 1px 1px 4px black;
+        font-weight: bold;
+    }
+</style>
+
+<div class="row mb-3">
+    <div class="col-12 section-title">
+        <h2>Bus Routes</h2>
+        <a href="{% url 'add_route' %}" class="btn btn-primary btn-sm">
+            + Add Route
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                Route Information
+            </div>
+            <div class="card-body p-0">
+                {% if routes %}
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Route Name</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Driver</th>
+                                <th>Capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for route in routes %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ route.route_name }}</td>
+                                    <td>{{ route.start_location }}</td>
+                                    <td>{{ route.end_location }}</td>
+                                    <td>{{ route.driver_name }}</td>
+                                    <td>{{ route.capacity }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="p-4 text-center text-muted">
+                        No bus routes found.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

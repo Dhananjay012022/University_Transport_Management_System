@@ -1,0 +1,16 @@
+body{
+    position: relative;  
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.controlshift.app/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzM4MjczLCJwdXIiOiJibG9iX2lkIn19--6c0ed8265ad1fdfabf02fcede06aea7666eb7105/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJzdHJpcCI6dHJ1ZSwiY3JvcCI6IjUwMDB4MjA2NiswKzYyMyIsInJlc2l6ZV90b19maXQiOls3MjUsMzAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--17822bb53c192d348e227b2443d640abed2e58e4/GettyImages-1139224311%20(1).jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    z-index: -1;
+}

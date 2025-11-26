@@ -1,0 +1,66 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{# Extra CSS / JS for admin #}
+{% block extrahead %}
+    {{ block.super }}
+    {# your custom admin css if any #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom_admin_theme.css' %}">
+    <style>
+        /* Only dashboard page has body class = "dashboard" */
+        body.dashboard {
+            background-image: url("https://images.shiksha.com/mediadata/images/1746178756phpUj1mG4.jpeg");
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Glass effect only on dashboard main content */
+        body.dashboard #content,
+        body.dashboard .dashboard,
+        body.dashboard .app-index,
+        body.dashboard .module {
+            background: rgba(255, 255, 255, 0.25) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border-radius: 15px !important;
+            padding: 15px !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.35) !important;
+        }
+
+        body.dashboard #content h1,
+        body.dashboard #content h2,
+        body.dashboard caption {
+            color: #ffffff !important;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        /* Header bar glass */
+        #header {
+            background: rgba(0, 0, 0, 0.5) !important;
+            backdrop-filter: blur(4px) !important;
+            border-bottom: none !important;
+        }
+
+        #site-name a {
+            color: #ffffff !important;
+            font-weight: bold !important;
+        }
+    </style>
+{% endblock %}
+
+{# Change the title in browser tab #}
+{% block title %}
+    University Transport Admin | {{ site_title|default:_("Django site admin") }}
+{% endblock %}
+
+{# Branding text in top-left of admin #}
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">University Transport Management – Admin</a>
+</h1>
+{% endblock %}
+
+{# Optional: hide Django’s default top-right links #}
+{% block nav-global %}{% endblock %}

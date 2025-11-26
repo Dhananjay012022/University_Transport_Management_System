@@ -1,0 +1,16 @@
+body{
+    position: relative;  
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background-image: url('https://images.shiksha.com/mediadata/images/1579589163php9sp7He.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.6; /* Adjust opacity */
+    z-index: -1; /* Send it behind the content */
+}

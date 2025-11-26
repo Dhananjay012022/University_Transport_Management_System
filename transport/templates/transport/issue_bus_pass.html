@@ -1,0 +1,66 @@
+{% extends 'transport/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: url("https://scontent.fixc10-2.fna.fbcdn.net/v/t39.30808-6/299883777_189765340099323_3968603394933036291_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=8n9DQGV1th0Q7kNvwH-EVF_&_nc_oc=AdkfaM51Aq_7MEjeJdUdKXxEW3Ql9egLuSq_EwimIdLQoVuqglfE3kXLkv0QtAO0YVraUoN2_E3anlJHe-e4S1g2&_nc_zt=23&_nc_ht=scontent.fixc10-2.fna&_nc_gid=vRdaLb9pgnxNepZ37_lYag&oh=00_AfjjMvUBhpHNPGuoWQCeiIlr0-_B8O5GGEWIpIe9phc8jg&oe=692CB5E0");
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.85) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    }
+
+    .section-title h2 {
+        color: white;
+        text-shadow: 1px 1px 4px black;
+        font-weight: bold;
+    }
+</style>
+
+<div class="row mb-3">
+    <div class="col-12 section-title">
+        <h2>Issue Bus Pass</h2>
+        <a href="{% url 'home' %}" class="btn btn-outline-light btn-sm">
+            ← Back to Students
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Bus Pass Details
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <small class="text-danger">{{ field.errors.0 }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-primary">Issue Pass</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
