@@ -13,3 +13,105 @@
 5. URLs:
    - Admin Dashboard (for staff): http://127.0.0.1:8000/admin/
    - Login / Home for project:   http://127.0.0.1:8000/
+
+
+
+# University Transport Management System 🚍
+
+A web-based **University Transport Management System** built with **Django**, **Bootstrap**, and **SQLite** to manage students, bus routes, and bus passes.  
+It also includes a **custom themed Django Admin** with glassmorphism UI and university-branded backgrounds.
+
+---
+
+## ✨ Features
+
+### 👨‍🎓 Student Management
+- Add, edit, and delete student records  
+- Store roll number, email, and associated bus route  
+- Validation and error messages on forms
+
+### 🚌 Bus Routes
+- Manage bus routes with:
+  - Route name  
+  - Start & end locations  
+  - Driver name  
+  - Capacity  
+- Tabular view of all routes with auto-generated serial numbers
+
+### 🎫 Bus Pass Management
+- Issue bus passes to students  
+- Form-based interface using Django ModelForms  
+- Validation for required fields
+
+### 🔐 Authentication
+- Login system for staff/admin  
+- Error message for invalid username/password  
+- Login page with college logo background and styled card UI
+
+### 🧑‍💻 Admin Panel (Django Admin)
+- Customized **Django Admin**:
+  - Glassmorphism dashboard (blur + transparent cards)  
+  - University-themed background image on admin home page  
+  - Custom color theme (navy + gold)  
+  - Buttons & table headers restyled  
+- Admin can manage all models directly (students, routes, passes, etc.)
+
+### 🎨 UI / UX Enhancements
+- Different background images for:
+  - Login page  
+  - Dashboard/Admin  
+  - Add Student page  
+  - Issue Bus Pass page  
+  - Bus Routes page  
+- Responsive layout using **Bootstrap**  
+- Clean typography and card-based design
+
+---
+
+## 🏗️ Tech Stack
+
+- **Backend:** Django (Python)
+- **Frontend:** HTML, CSS, Bootstrap, basic JavaScript
+- **Database:** SQLite (default Django DB)
+- **Server (dev):** Django development server
+- **Server (prod):** gunicorn (for deployment)
+- **Static Handling:** Whitenoise, Django static files
+
+---
+
+## 📂 Project Structure
+
+```text
+University_Transport_Management_System/
+├─ college_transport/          # Django project (settings, urls, wsgi)
+│  ├─ settings.py
+│  ├─ urls.py
+│  └─ wsgi.py
+├─ transport/                  # Main app (views, models, forms, templates)
+│  ├─ templates/
+│  │  └─ transport/
+│  │     ├─ login.html
+│  │     ├─ add_student.html
+│  │     ├─ issue_bus_pass.html
+│  │     └─ bus_routes.html
+│  ├─ static/                  # App-specific static files (if any)
+│  ├─ models.py
+│  ├─ forms.py
+│  ├─ urls.py
+│  └─ views.py
+├─ static/                     # Global static files (CSS, images, JS)
+│  ├─ css/
+│  │  └─ custom_admin_theme.css
+│  └─ images/
+│     └─ mmdu_logo.jpg
+├─ staticfiles/                # Collected static (for deployment)
+├─ templates/
+│  └─ admin/
+│     ├─ base_site.html        # Custom admin theme
+│     └─ index.html (optional) # If used for extra dashboard content
+├─ db.sqlite3                  # SQLite database
+├─ manage.py
+├─ requirements.txt            # Python dependencies
+├─ Procfile                    # For deployment (gunicorn)
+├─ .gitignore
+└─ README.md
